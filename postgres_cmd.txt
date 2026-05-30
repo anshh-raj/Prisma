@@ -1,0 +1,10 @@
+sudo -iu postgres => switch to postgres root user
+psql
+\l => list down all database
+ctrl + l => clear screen
+\q => exit postgres
+exit => quit the root user
+
+http://127.0.0.1/pgadmin4 or http://localhost/pgadmin4 => web mode
+
+DATABASE_URL="postgresql://postgres:PASSWORD@localhost:5432/DATABASE_NAME?schema=public"
