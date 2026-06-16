@@ -4,7 +4,6 @@ export const fetchPosts = async (req, res) => {
   //pagination
   let page = Number(req.query.page) || 1; //default page is 1
   let limit = Number(req.query.limit) || 10; //default limit is 10
-  const skip = (page - 1) * limit; //number of posts to skip
 
   if (page <= 0) {
     page = 1;
@@ -13,6 +12,8 @@ export const fetchPosts = async (req, res) => {
   if (limit <= 0 || limit > 100) {
     limit = 10;
   }
+
+  const skip = (page - 1) * limit; //number of posts to skip
 
   const posts = await prisma.post.findMany({
     skip: skip,
